@@ -138,6 +138,7 @@ if operation == 'get':
             block_number = int.from_bytes(data[2:4], 'big')
             if block_number==pre_block:
                 print('중복된 데이터블록')
+                send_ack(block_number, server_new_socket)
                 continue
             print(block_number)
             if block_number == expected_block_number:
